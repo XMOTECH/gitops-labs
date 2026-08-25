@@ -1,0 +1,23 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - ../../base
+
+# Cible le namespace de production
+namespace: demo-prod
+
+# Labels spécifiques à la prod
+labels:
+  - pairs:
+      environnement: prod
+
+# (Optionnel) Ajustements spécifiques pour la production (ex: replicas, ressources)
+patches:
+  - target:
+      kind: Deployment
+      name: demo
+    patch: |-
+      - op: replace
+        path: /spec/replicas
+        value: 3
