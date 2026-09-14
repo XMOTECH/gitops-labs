@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: portfolio
-        image: ghcr.io/xmotech/portfolio:855ca4c
+        image: ghcr.io/xmotech/portfolio:028bf1a
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 4000
